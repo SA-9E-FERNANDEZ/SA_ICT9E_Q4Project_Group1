@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rate Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: #fff0f5;
+      color: #333;
+    }
+
+    .navbar-custom {
+      background: linear-gradient(to right, #ffb6c1, #add8e6);
+      border-bottom: 3px solid #ffe4e1;
+    }
+
+    .navbar-brand img {
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+    }
+
+    .navbar-brand img:hover {
+      transform: rotate(10deg) scale(1.1);
+    }
+
+    .portfolio-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #ff69b4;
+      margin-top: 30px;
+    }
+
+    .comment-section {
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      margin-top: 30px;
+      box-shadow: 0 4px 12px rgba(255, 182, 193, 0.4);
+    }
+
+    #commentList p {
+      background: #ffe6f0;
+      padding: 10px 15px;
+      border-radius: 15px;
+      margin-bottom: 10px;
+      text-align: left;
+      word-break: break-word;
+    }
+
+    #commentInput, #nameInput {
+      resize: none;
+      border-radius: 15px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .btn-comment {
+      background: linear-gradient(to right, #ffccf9, #c5f0ff);
+      color: #333;
+      border-radius: 30px;
+      font-weight: bold;
+      margin-top: 15px;
+      transition: 0.3s ease-in-out;
+    }
+
+    .btn-comment:hover {
+      background: linear-gradient(to right, #ffd6ec, #bae6fd);
+      transform: scale(1.05);
+    }
+
+    footer {
+      background: linear-gradient(to right, #ffb6c1, #add8e6);
+      color: #444;
+      padding: 20px;
+      border-top: 3px solid #ffe4e1;
+      margin-top: 50px;
+      border-radius: 20px 20px 0 0;
+    }
+
+    footer a {
+      color: #d63384;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQcHVuqgJPs1mFipnjsVwsFIYiYwTaulS-1_w&s"
+           width="40" height="40" alt="Cute Logo" class="rounded-circle shadow-sm">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item"><a class="nav-link fw-bold" href="index.html">About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="page 2.html">Quarter 1</a></li>
+        <li class="nav-item"><a class="nav-link" href="page 3.html">Quarter 2</a></li>
+        <li class="nav-item"><a class="nav-link" href="page 4.html">Quarter 3</a></li>
+        <li class="nav-item"><a class="nav-link" href="page 5.html">Quarter 4</a></li>
+        <li class="nav-item"><a class="nav-link" href="page 6.html">What's Next</a></li>
+        <li class="nav-item"><a class="nav-link active" href="page 7.html">Rate Us</a></li>
+      </ul>
+      <form class="d-flex" onsubmit="return handleSearch(event)">
+        <input class="form-control rounded-pill me-2" type="search" id="searchInput" placeholder="Search anything">
+        <button class="btn btn-outline-light rounded-pill" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="container text-center">
+  <h1 class="portfolio-title">Rate Us / Leave a Comment 💬</h1>
+
+  <div class="comment-section mx-auto">
+    <!-- NEW: Name input for "Create Account" -->
+    <input type="text" id="nameInput" placeholder="Enter your name to create an account">
+
+    <textarea id="commentInput" rows="3" placeholder="Write your comment here..."></textarea>
+    <br>
+    <button class="btn btn-comment" onclick="submitComment()">Submit Comment</button>
+    <hr>
+    <div id="commentList"></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="text-center">
+  <p>📩 Contact us if you have questions or feedback </p>
+  <p>OB Montessori Center Santa Ana Campus</p>
+</footer>
+
+<!-- COMMENT SCRIPT -->
+<script>
+  function submitComment() {
+    const nameInput = document.getElementById("nameInput").value.trim();
+    const commentInput = document.getElementById("commentInput").value.trim();
+    const commentList = document.getElementById("commentList");
+
+    if (nameInput === "" || commentInput === "") {
+      alert("Please enter your name and a comment.");
+      return;
+    }
+
+    const newComment = document.createElement("p");
+    newComment.textContent = `${nameInput}: ${commentInput}`;
+    commentList.appendChild(newComment);
+
+    document.getElementById("commentInput").value = "";
+  }
+
+  function handleSearch(event) {
+    event.preventDefault();
+    alert("Search feature is not yet available!");
+    return false;
+  }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
